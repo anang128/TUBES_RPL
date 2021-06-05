@@ -1,9 +1,9 @@
 <?php 
 
-Class Dashboard extends CI_Controller{
+Class ControllerDashboardPenjual extends CI_Controller{
 	public function index()
 	{
-		$this->load->view('dashboardVPenjual');
+		$this->load->view('penjualV');
 	}
 }
 

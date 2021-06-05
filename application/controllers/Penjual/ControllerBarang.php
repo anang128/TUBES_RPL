@@ -1,34 +1,49 @@
 <?php
 
-class BarangController extends CI_Controller
+class ControllerBarang extends CI_Controller
 {
-    public function index()
-    {
-        $data['barang'] = $this->LeBabeModel->getData('barang')->result();
-        $this->load->view('barangView', $data);
-    }
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('LeBabeModel');
+	}
+
+	public function index()
+	{
+		$this->load->view('jualBarangV');
+	}
 
     public function addBarang()
     {
-        $this->load->view('formTambahBarang');
-    }
+		$this->form_validation->set_rules('namaBarang','namaBarang','required');
+		$this->form_validation->set_rules('statusBarang','statusBarang','required');
+		$this->form_validation->set_rules('descBarang','descBarang','required');
+		$this->form_validation->set_rules('hargaBarang','hargaBarang','required');
+		$this->form_validation->set_rules('hargaAkhir','hargaAkhir','required');
+		$this->form_validation->set_rules('deadline','deadline','required');
+		$this->form_validation->set_rules('gambar','gambar','required');
 
-    public function addBarangAct()
-    {
-        $data = [
-            "namaBarang" => $this->input->post('namaBarang', true),
-            "statusBarang" => $this->input->post('statusBarang', true),
-            "kondisiBarang" => $this->input->post('kondisiBarang', true),
-            "hargaAwal" => $this->input->post('hargaAwal', true),
-            "kelipatanBid" => $this->input->post('kelipatanBid', true),
-            "deadline" => $this->input->post('deadline', true),
-        ];
-        $this->LeBabeModel->insertData($data, 'barang');
-        $this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
-			  Barang berhasil ditambahkan
-			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			</div>');
-        redirect('barangView');
+        if($this->form_validation->run() == FALSE)
+		{
+			$this->load->view('jualBarangV');
+		} else
+		{
+			$data = [
+				"namaBarang" => $this->input->post('namaBarang', true),
+				"statusBarang" => $this->input->post('statusBarang', true),
+				"descBarang" => $this->input->post('descBarang', true),
+				"hargaBarang" => $this->input->post('hargaBarang', true),
+				"hargaAkhir" => 0,
+				"deadline" => $this->input->post('deadline', true),
+				"gambar" => $this->input->post('gambar', true),
+			];
+			$this->LeBabeModel->insertData('barang', $data);
+			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
+				  Barang berhasil ditambahkan
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				</div>');
+			redirect('Penjual/ControllerBarang/index');
+		}
     }
 
     public function updateBarang($id)
@@ -54,7 +69,7 @@ class BarangController extends CI_Controller
 			  Berhasil memperbaharui data barang
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			</div>');
-        redirect('barangView')
+        redirect('barangView');
     }
 
     public function deleteBarang($id)

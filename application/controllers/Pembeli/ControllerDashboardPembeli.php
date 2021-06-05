@@ -1,9 +1,9 @@
 <?php 
 
-Class Dashboard extends CI_Controller{
+Class ControllerDashboardPembeli extends CI_Controller{
 	public function index()
 	{
-		$this->load->view('dashboardVPebeli');
+		$this->load->view('pembeliV');
 	}
 }
 
