@@ -38,10 +38,10 @@
                 <div class="collapse navbar-collapse " id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo base_url('index.php/regisC/index')?>">Sign Up</a>
+                            <a class="nav-link" href="<?php echo base_url('index.php/ControllerRegister/index')?>">Sign Up</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo base_url('index.php/loginC/index')?>">Log In</a>
+                            <a class="nav-link" href="<?php echo base_url('index.php/ControllerLogin/index')?>">Log In</a>
                         </li>
                         
                     </ul>

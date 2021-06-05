@@ -53,25 +53,31 @@
         <!-- Form -->
         <div class="row row1 justify-content-center">
             <section class="col-12 col-sm-6 col-md-4 kotak">
+			<?php if ($this->session->flashdata('pesan')) : ?>
+			<?= $this->session->flashdata('pesan'); ?>
+			<?php endif; ?>
+			<?php $this->session->unset_userdata('pesan'); ?>
                 <div class="card">
                     <div class="wlcm text-center">
                         Welcome To Lebabe
                     </div>
                     <div class="card-body">
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Email address</label>
+					<form class="form-signin" action="<?= base_url('index.php/ControllerLogin/index')?>" method="POST">
+					<div class="form-floating mb-3">
+                            <input type="text" name="username" class="form-control" id="username" placeholder="Username">
+                            <label for="username">Username</label>
                         </div>
                         <div class="form-floating">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Password</label>
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                            <label for="password">Password</label>
                         </div>
                         <div class="button-login text-end" href="#">
-                            <button type="button" class="btn btn-signin"><a href="<?php echo base_url('index.php/pembeliC/index')?>">Sign In</a></button>
+                            <button type="submit" class="btn btn-signin">">Sign In</button>
                         </div>
                         <div class="new-lebabers">
-                            New Lebabers? <a href="<?php echo base_url('index.php/regisC/index')?>">Create Account</a>
+                            New Lebabers? <a href="<?php echo base_url('index.php/ControllerRegister/index')?>">Create Account</a>
                         </div>
+					</form>
                     </div>
                 </div>
             </section>

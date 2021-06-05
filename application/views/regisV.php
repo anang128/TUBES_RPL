@@ -58,43 +58,47 @@
                         Welcome To Lebabe
                     </div>
                     <div class="card-body">
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Name</label>
+					<form class="form-signin" action="<?= base_url('index.php/ControllerRegister/index')?>" method="POST">
+					<div class="form-floating mb-3">
+                            <input type="text" name="nama" class="form-control" id="nama" placeholder="name@example.com">
+							<?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <label for="nama">Name</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="date" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Birth Date</label>
+                            <input type="text" name="no_telp" class="form-control" id="no_telp" placeholder="name@example.com">
+							<?= form_error('no_telp', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <label for="no_telp">Phone Number</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Phone Number</label>
+                            <input type="text" name="alamat" class="form-control" id="alamat" placeholder="name@example.com">
+							<?= form_error('alamat', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <label for="alamat">Address</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Address</label>
+                            <input type="text" name="email" class="form-control" id="email" placeholder="name@example.com">
+							<?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <label for="email">Email address</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Email address</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Username</label>
+                            <input type="text" name="username" class="form-control" id="username" placeholder="name@example.com">
+							<?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <label for="username">Username</label>
                         </div>
                         <div class="form-floating">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Password</label>
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+							<?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <label for="password">Password</label>
                         </div>
 
                         
                         
                         <div class="button-login text-end" href="#">
-                            <button type="button" class="btn btn-signin">Register</button>
+                            <button type="submit" class="btn btn-signin">Register</button>
                         </div>
                         <div class="new-lebabers">
-                            Have account already? <a href="<?php echo base_url('index.php/loginC/index')?>">Sign In Here</a>
+                            Have account already? <a href="<?php echo base_url('index.php/ControllerLogin/index')?>">Sign In Here</a>
                         </div>
+					</form>
                     </div>
                 </div>
             </section>

@@ -47,8 +47,8 @@
                                 Jual Barang
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/statusLelangC/index')?>">Status Lelang</a></li>
-                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/jualBarangC/index')?>">Input Barang</a></li>
+                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/statusLelangC/index')?>">Status Lelang</a></li>
+                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/jualBarangC/index')?>">Input Barang</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -57,7 +57,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item " href="#">Pelelang</a></li>
-                                <li><a class="dropdown-item" href="<?php echo base_url('index.php/pembeliC/index')?>">Pembeli</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url('index.php/Pembeli/ControllerDashboardPembeli/index')?>">Pembeli</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item " href="#">Saldo</a></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('index.php/dashboardC/index')?>">Logout</a></li>
@@ -71,44 +71,52 @@
         <!-- Form -->
         <div class="row row1 justify-content-center">
             <section class="col-12 col-sm-6 col-md-4 kotak">
+			<?php if ($this->session->flashdata('pesan')) : ?>
+			<?= $this->session->flashdata('pesan'); ?>
+			<?php endif; ?>
+			<?php $this->session->unset_userdata('pesan'); ?>
                 <div class="card">
                     <div class="wlcm text-center">
                         Masukan Informasi Barang
                     </div>
                     <div class="card-body">
+					<form class="form-signin" action="<?= base_url('index.php/Penjual/ControllerBarang/addBarang')?>" method="POST">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Nama Barang</label>
+                            <input type="text" name="namaBarang" class="form-control" id="namaBarang" placeholder="Nama Barang">
+							<?= form_error('namaBarang', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <label for="namaBarang">Nama Barang</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="date" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Set Tanggal Terakhir Bid</label>
+                            <input type="text" name="statusBarang" class="form-control" id="statusBarang" placeholder="Status Barang">
+							<?= form_error('statusBarang', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <label for="statusBarang">Status Barang</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Kondisi Barang</label>
+                            <input type="text" name="descBarang" class="form-control" id="descBarang" placeholder="Deskripsi Barang">
+							<?= form_error('descBarang', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <label for="descBarang">Deskripsi Barang</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Kelipatan Bid</label>
+                            <input type="text" name="hargaBarang" class="form-control" id="hargaBarang" placeholder="Harga Awal">
+							<?= form_error('hargaBarang', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <label for="hargaBarang">Harga Awal</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Mulai Bid</label>
+                            <input type="date" name="deadline" class="form-control" id="deadline" placeholder="Deadline">
+							<?= form_error('deadline', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <label for="deadline">Set Tanggal Terakhir Bid</label>
                         </div>
                         <div class="form-floating mb-3">
                             <div class="new-lebabers" style="padding-bottom:10px">
                                 Masukan Gambar Barang
                             </div>
-                            <input type="file" value="upload gambar"/>
+                            <input type="file" name="gambar" id="gambar" value="upload gambar"/>
                         </div>
-                        
-
-                        
                         
                         <div class="button-login text-end" href="#">
-                            <button type="button" class="btn btn-signin">Submit</button>
+                            <button type="submit" class="btn btn-signin">Submit</button>
                         </div>
+					</form>
                     </div>
                 </div>
             </section>

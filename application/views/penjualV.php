@@ -40,18 +40,18 @@
                 <div class="collapse navbar-collapse " id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="<?php echo base_url('index.php/penjualC/index')?>">Home</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/index')?>">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Sell Item
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/statusLelangC/index')?>">Status</a></li>
-                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/jualBarangC/index')?>">Input Item</a></li>
+                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/statusLelangC/index')?>">Status</a></li>
+                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/jualBarangC/index')?>">Input Item</a></li>
                             </ul>
                         </li>
-                        <li><a class="nav-link" href="<?php echo base_url('index.php/pembeliC/index')?>">Shop</a></li>
+                        <li><a class="nav-link" href="<?php echo base_url('index.php/Pembeli/ControllerDashboardPembeli/index')?>">Shop</a></li>
                         
                     </ul>
                 </div>

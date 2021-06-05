@@ -40,7 +40,7 @@
                 <div class="collapse navbar-collapse " id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="<?php echo base_url('index.php/penjualC/index')?>">Home</a>
+                            <a class="nav-link" aria-current="page" href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/index')?>">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -48,7 +48,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item " href="#">Status Lelang</a></li>
-                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/jualBarangC/index')?>">Input Barang</a></li>
+                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/jualBarangC/index')?>">Input Barang</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -57,7 +57,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item " href="#">Pelelang</a></li>
-                                <li><a class="dropdown-item" href="<?php echo base_url('index.php/pembeliC/index')?>">Pembeli</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url('index.php/Pembeli/ControllerDashboardPembeli/index')?>">Pembeli</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item " href="#">Saldo</a></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('index.php/dashboardC/index')?>">Logout</a></li>
@@ -91,31 +91,26 @@
                 <table class="table table-striped">
                 <thead>
                     <tr>
-                    <th scope="col">ID</th>
+					<th>No</th>
                     <th scope="col">Nama Barang</th>
-                    <th scope="col">Harga Terakhir</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Deskripsi Barang</th>
+                    <th scope="col">Harga Awal</th>
+                    <th scope="col">Gambar</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Tas LV</td>
-                    <td>Rp. 1.000.000</td>
-                    <td><button type="button" class="btn btn-success">Success</button></td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Tas Vans</td>
-                    <td>Rp. 1.500.000</td>
-                    <td><button type="button" class="btn btn-danger">Lelang</button></td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td>Tas Dickies</td>
-                    <td>Rp. 4.000.000</td>
-                    <td><button type="button" class="btn btn-success">Success</button></td>
-                    </tr>
+                <?php $no = 1;
+				foreach ($data as $d) { ?>
+					<tr>
+					<form action="">
+						<td><?php echo $no++ ?></td>
+						<td><?php echo $d->namaBarang ?></td>
+						<td><?php echo $d->descbarang ?></td>
+						<td><?php echo $d->hargaBarang ?></td>
+						<td><?php echo $d->gambar ?></td>
+					</form>
+					</tr>
+				<?php } ?>
                 </tbody>
                 </table>
 
