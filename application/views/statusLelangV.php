@@ -59,7 +59,6 @@
                                 <li><a class="dropdown-item " href="#">Pelelang</a></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('index.php/Pembeli/ControllerDashboardPembeli/index')?>">Pembeli</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item " href="#">Saldo</a></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('index.php/dashboardC/index')?>">Logout</a></li>
                             </ul>
                         </li>
@@ -94,20 +93,24 @@
 					<th>No</th>
                     <th scope="col">Nama Barang</th>
                     <th scope="col">Deskripsi Barang</th>
+                    <th scope="col">Status Barang</th>
                     <th scope="col">Harga Awal</th>
-                    <th scope="col">Gambar</th>
+					<th scope="col">Harga Akhir</th>
+					<th scope="col">Status Lelang</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php $no = 1;
-				foreach ($data as $d) { ?>
+				foreach ($data as $dt) { ?>
 					<tr>
 					<form action="">
 						<td><?php echo $no++ ?></td>
-						<td><?php echo $d->namaBarang ?></td>
-						<td><?php echo $d->descbarang ?></td>
-						<td><?php echo $d->hargaBarang ?></td>
-						<td><?php echo $d->gambar ?></td>
+						<td><?php echo $dt['namaBarang'] ?></td>
+						<td><?php echo $dt['descBarang'] ?></td>
+						<td><?php echo $dt['statusBarang'] ?></td>
+						<td><?php echo $dt['hargaBarang'] ?></td>
+						<td><?php echo $dt['hargaAkhir'] ?></td>
+						<td><a type="button" class="btn btn-danger"><?php echo $dt['statusLelang'] ?></a></td>
 					</form>
 					</tr>
 				<?php } ?>

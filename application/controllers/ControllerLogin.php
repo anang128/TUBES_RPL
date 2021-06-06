@@ -10,7 +10,6 @@ class ControllerLogin extends CI_Controller
 
 			$username = $this->input->post('username');
 			$password = md5($this->input->post('password'));
-      // $validasi = $this->LeBabeModel->loginValidation($username, $password);
 
       if($this->form_validation->run() == FALSE)
       {

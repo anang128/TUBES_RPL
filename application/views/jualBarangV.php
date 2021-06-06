@@ -40,7 +40,7 @@
                 <div class="collapse navbar-collapse  justify-content-end" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="<?php echo base_url('index.php/penjualC/index')?>">Home</a>
+                            <a class="nav-link" aria-current="page" href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/index')?>">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -59,7 +59,6 @@
                                 <li><a class="dropdown-item " href="#">Pelelang</a></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('index.php/Pembeli/ControllerDashboardPembeli/index')?>">Pembeli</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item " href="#">Saldo</a></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('index.php/dashboardC/index')?>">Logout</a></li>
                             </ul>
                         </li>
@@ -80,7 +79,7 @@
                         Masukan Informasi Barang
                     </div>
                     <div class="card-body">
-					<form class="form-signin" action="<?= base_url('index.php/Penjual/ControllerBarang/addBarang')?>" method="POST">
+					<?php echo form_open_multipart('Penjual/ControllerBarang/addBarang'); ?>
                         <div class="form-floating mb-3">
                             <input type="text" name="namaBarang" class="form-control" id="namaBarang" placeholder="Nama Barang">
 							<?= form_error('namaBarang', '<small class="text-danger pl-3">', '</small>'); ?>
@@ -110,7 +109,8 @@
                             <div class="new-lebabers" style="padding-bottom:10px">
                                 Masukan Gambar Barang
                             </div>
-                            <input type="file" name="gambar" id="gambar" value="upload gambar"/>
+                            <input type="file" name="gambar" id="gambar"/>
+							<?= form_error('gambar', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         
                         <div class="button-login text-end" href="#">

@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class LeBabeModel extends CI_model
 {
@@ -6,8 +7,8 @@ class LeBabeModel extends CI_model
 		return $this->db->get($table);
 	}
 
-    public function insertData($data,$table){
-		$this->db->insert($table,$data);
+    public function insertData($table, $data){
+		$this->db->insert($table, $data);
 	}
 
     public function updateData($table,$data,$where){
@@ -19,21 +20,35 @@ class LeBabeModel extends CI_model
 		$this->db->delete($table);
 	}
 
-    public function loginValidation(){
-		$username = set_value('username');
-		$password = set_value('password');
+	public function showDataPenjualan($id)
+	{
+		$this->db->select('namaBarang');
+		$this->db->select('descBarang');
+		$this->db->select('hargaBarang');
+		$this->db->select('hargaAkhir');
+		$this->db->select('statusBarang');
+		$this->db->select('statusLelang');
+		$this->db->select('gambar');
+		$this->db->from('barang');
+		$this->db->where('idUser', $id);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 
-		$result = $this->db
-						->where('username',$username)
-						->where('password',md5($password))
-						->limit(1)
-						->get('customer');
+	public function getBarang()
+	{
+		$this->db->select('gambar');
+		$this->db->select('namaBarang');
+		$this->db->select('hargaBarang');
+		$this->db->select('hargaAkhir');
+		$this->db->from('barang');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 
-		if ($result->num_rows() > 0){
-			return $result->row();
-		}else{
-			return FALSE;
-		}
+	public function getUser($username)
+	{
+		return $this->db->get_where('user', ['username' => $username])->row_array();
 	}
 }
 

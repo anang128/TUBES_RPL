@@ -43,7 +43,7 @@
                             <a class="nav-link" aria-current="page" href="<?php echo base_url('index.php/dashboardC/index')?>">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo base_url('index.php/regisC/index')?>">Sign Up</a>
+                            <a class="nav-link" href="<?php echo base_url('index.php/ControllerRegister/index')?>">Sign Up</a>
                         </li>
                     </ul>
                 </div>

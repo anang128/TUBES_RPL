@@ -48,7 +48,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/statusLelangC/index')?>">Status</a></li>
-                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/jualBarangC/index')?>">Input Item</a></li>
+                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/ControllerBarang/addBarang')?>">Input Item</a></li>
                             </ul>
                         </li>
                         <li><a class="nav-link" href="<?php echo base_url('index.php/Pembeli/ControllerDashboardPembeli/index')?>">Shop</a></li>
