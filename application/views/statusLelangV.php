@@ -30,7 +30,7 @@
         <nav class="navbar fixed-top navbar-expand-lg navbar-light nav1" data-aos = "fade-down">
             <div class="container">
     
-                <a class="navbar-brand" aria-current="page" href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/index')?>">
+                <a class="navbar-brand" aria-current="page" href="<?php echo base_url('index.php/dashboardC/index')?>">
                 <img src="https://d338t8kmirgyke.cloudfront.net/icons/icon_pngs/000/011/145/original/marketplace.png" width="30" height="30">
                 </a>
 
@@ -39,23 +39,25 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/index')?>">Home</a>
+                        </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Sell Item
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Jual Barang
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/statusLelangC/index')?>">Status</a></li>
-                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/jualBarangC/index')?>">Input Item</a></li>
+                                <li><a class="dropdown-item " href="#">Status Penjualan</a></li>
+                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/jualBarangC/index')?>">Input Barang</a></li>
                             </ul>
                         </li>
-                        <a class="nav-link" href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/index')?>">Auction</a>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Account
+                                Lelang
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item " href="#">Profile</a></li>
-                                <li><a class="dropdown-item " href="#">Saldo</a></li>
+                                <li><a class="dropdown-item " href="#">Pelelang</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url('index.php/Pembeli/ControllerDashboardPembeli/index')?>">Pembeli</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('index.php/dashboardC/index')?>">Logout</a></li>
                             </ul>
@@ -83,7 +85,7 @@
 
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4 text-center">STATUS LELANG</h1>      
+                <h1 class="display-4 text-center">STATUS PENJUALAN</h1>      
 
                 <table class="table table-striped">
                 <thead>
@@ -91,20 +93,24 @@
 					<th>No</th>
                     <th scope="col">Nama Barang</th>
                     <th scope="col">Deskripsi Barang</th>
+                    <th scope="col">Status Barang</th>
                     <th scope="col">Harga Awal</th>
-                    <th scope="col">Gambar</th>
+					<th scope="col">Harga Akhir</th>
+					<th scope="col">Status Lelang</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php $no = 1;
-				foreach ($data as $d) { ?>
+				foreach ($data as $dt) { ?>
 					<tr>
 					<form action="">
 						<td><?php echo $no++ ?></td>
-						<td><?php echo $d->namaBarang ?></td>
-						<td><?php echo $d->descbarang ?></td>
-						<td><?php echo $d->hargaBarang ?></td>
-						<td><?php echo $d->gambar ?></td>
+						<td><?php echo $dt['namaBarang'] ?></td>
+						<td><?php echo $dt['descBarang'] ?></td>
+						<td><?php echo $dt['statusBarang'] ?></td>
+						<td><?php echo $dt['hargaBarang'] ?></td>
+						<td><?php echo $dt['hargaAkhir'] ?></td>
+						<td><a type="button" class="btn btn-danger"><?php echo $dt['statusLelang'] ?></a></td>
 					</form>
 					</tr>
 				<?php } ?>
@@ -119,7 +125,26 @@
         
 
     <!-- Footer -->
-    
+    <section id="footer">
+		<div class="container">
+			<div class="row text-center text-xs-center text-sm-left text-md-left">
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Quick links</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>About</a></li>
+						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+						<li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+					
+				</div>
+				<hr>
+			</div>	
 			<div class="footer-lower-content">
             ©2021 LeBabe. All rights reserved.
             <div class="total-shots-container">

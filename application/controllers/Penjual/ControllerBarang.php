@@ -15,10 +15,7 @@ class ControllerBarang extends CI_Controller
 		$this->form_validation->set_rules('statusBarang','statusBarang','required');
 		$this->form_validation->set_rules('descBarang','descBarang','required');
 		$this->form_validation->set_rules('hargaBarang','hargaBarang','required');
-		// $this->form_validation->set_rules('hargaAkhir','hargaAkhir','required');
 		$this->form_validation->set_rules('deadline','deadline','required');
-		// $this->form_validation->set_rules('gambar','gambar','required');
-		// $this->form_validation->set_rules('statusLelang','statusLelang','required');
 
         if($this->form_validation->run() == FALSE)
 		{
@@ -26,8 +23,6 @@ class ControllerBarang extends CI_Controller
 		} else
 		{
 			$upload_image = $_FILES['gambar']['name'];
-			// var_dump($upload_image);
-			// die;
 			if ($upload_image) {
 				$config['allowed_types'] = 'gif|jpg|png|jpeg';
 				$config['max_size'] = '10000';
@@ -64,32 +59,6 @@ class ControllerBarang extends CI_Controller
 				</div>');
 			redirect('Penjual/jualBarangC');
 		}
-    }
-
-    public function updateBarang($id)
-    {
-        $where = array('idBarang' => $id);
-        $data['barang'] = $this->db->query("SELECT * FROM barang WHERE idBarang ='$id'")->result();
-        $this->load->view('formEditBarang');
-    }
-
-    public function updateBarangAct()
-    {
-        $data = [
-            "namaBarang" => $this->input->post('namaBarang', true),
-            "statusBarang" => $this->input->post('statusBarang', true),
-            "kondisiBarang" => $this->input->post('kondisiBarang', true),
-            "hargaAwal" => $this->input->post('hargaAwal', true),
-            "kelipatanBid" => $this->input->post('kelipatanBid', true),
-            "deadline" => $this->input->post('deadline', true),
-        ];
-        $where = array('idBarang' => $id);
-        $this->LeBabeModel->updateData('barang', $data,$where);
-        $this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
-			  Berhasil memperbaharui data barang
-			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			</div>');
-        redirect('barangView');
     }
 
     public function deleteBarang($id)

@@ -54,8 +54,8 @@
                                 Account
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item " href="index.php/profileC/index">Profile</a></li>
-                                <li><a class="dropdown-item " href="#">Saldo</a></li>
+                                <li><a class="dropdown-item " href="profile">Profile</a></li>
+                                <li><a class="dropdown-item " href="saldo">Saldo</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('index.php/dashboardC/index')?>">Logout</a></li>
                             </ul>

@@ -40,7 +40,7 @@
                 <div class="collapse navbar-collapse " id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo base_url('index.php/Pembeli/barang/index')?>">Item</a>
+                            <a class="nav-link" href="#">Item</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/index')?>">Auction</a>
@@ -50,8 +50,8 @@
                                 Account
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item " href="#">Profile</a></li>
-                                <li><a class="dropdown-item " href="#">Saldo</a></li>
+                                <li><a class="dropdown-item " href="ControllerDashboardPembeli/profile">Profile</a></li>
+                                <li><a class="dropdown-item " href="ControllerDashboardPembeli/saldo">Saldo</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('index.php/dashboardC/index')?>">Logout</a></li>
                             </ul>
@@ -96,163 +96,38 @@
         <div class="container">
 
             <div class="row r-1">
+			<?php foreach ($barang as $b): ?>
                 <div class="col">
                     <div class="card" style="width: 18rem;">
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                <img src="<?php echo base_url('assets/img/11.jpg') ?>" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                <img src="<?php echo base_url('assets/img/21.jpg') ?>" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                <img src="<?php echo base_url('assets/img/31.jpg') ?>" class="d-block w-100" alt="...">
+                                <img src="<?php echo base_url('assets/img/'. $b['gambar']) ?>" class="d-block w-100" alt="...">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="false"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title text-center">Tas LV</h5>
-                            <p class="card-text">Bid Tertinggi</p>
-                            <p class="card-text">Last Bid</p>
-                            <p class="card-text">Mulai Bid</p>
+                            <h5 class="card-title text-center"><?= $b['namaBarang'] ?></h5>
+                            <p class="card-text">Harga Awal    : <?= $b['hargaBarang'] ?></p>
+                            <p class="card-text">Bid Tertinggi : <?= $b['hargaAkhir'] ?></p>
+							<form class="form-signin" action="<?= base_url('index.php/Pembeli/ControllerBidBarang/addBid')?>" method="POST">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Masukan Nominal Bid" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Bid</button>
+                                <input type="text" name="nominalBid" class="form-signin" placeholder="Masukan Nominal Bid" aria-label="Recipient's username" aria-describedby="button-addon2">
+								<input type="hidden" name="idBarang" value="<?= $b['idBarang'] ?>">
+                                <button type="submit" class="btn btn-outline-secondary">Bid</button>
                             </div>
+							</form>
                         </div>
 
                     </div>
                 </div>
-
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                <img src="<?php echo base_url('assets/img/12.jpg') ?>" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                <img src="<?php echo base_url('assets/img/22.jpg') ?>" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                <img src="<?php echo base_url('assets/img/23.jpg') ?>" class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Tas Vans</h5>
-                            <p class="card-text">Bid Tertinggi</p>
-                            <p class="card-text">Last Bid</p>
-                            <p class="card-text">Mulai Bid</p>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Masukan Nominal Bid" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Bid</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                <img src="<?php echo base_url('assets/img/13.jpg') ?>" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                <img src="<?php echo base_url('assets/img/32.jpg') ?>" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                <img src="<?php echo base_url('assets/img/33.jpg') ?>" class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Tas Dikies</h5>
-                            <p class="card-text">Bid Tertinggi</p>
-                            <p class="card-text">Last Bid</p>
-                            <p class="card-text">Mulai Bid</p>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Masukan Nominal Bid" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Bid</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+			<?php endforeach; ?>
             </div>
         </div>
     </div>
 
     
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-    -->
-
-    <!-- JS AOS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
-  </body>
-</html>
-
-
-    
-
- 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

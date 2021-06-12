@@ -5,6 +5,15 @@ Class ControllerDashboardPenjual extends CI_Controller{
 	{
 		$this->load->view('penjualV');
 	}
+
+	public function profile()
+	{
+		$this->load->view('profileV');
+	}
+
+	public function saldo(){
+        $this->load->view('saldoV');
+    }
 }
 
 ?>

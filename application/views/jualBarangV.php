@@ -77,7 +77,7 @@
                         Masukan Informasi Barang
                     </div>
                     <div class="card-body">
-					<form class="form-signin" action="<?= base_url('index.php/Penjual/ControllerBarang/addBarang')?>" method="POST">
+					<?php echo form_open_multipart('Penjual/ControllerBarang/addBarang'); ?>
                         <div class="form-floating mb-3">
                             <input type="text" name="namaBarang" class="form-control" id="namaBarang" placeholder="Nama Barang">
 							<?= form_error('namaBarang', '<small class="text-danger pl-3">', '</small>'); ?>

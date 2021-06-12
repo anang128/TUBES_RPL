@@ -139,7 +139,7 @@
                 <div class="collapse navbar-collapse  justify-content-end" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo base_url('index.php/Pembeli/barang/index')?>">Item</a>
+                            <a class="nav-link" href="#">Item</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/index')?>">Auction</a>
@@ -150,7 +150,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item " href="#">Profile</a></li>
-                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/saldoC/index')?>">Saldo</a></li>
+                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/saldo')?>">Saldo</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('index.php/dashboardC/index')?>">Logout</a></li>
                             </ul>

@@ -37,6 +37,7 @@ class LeBabeModel extends CI_model
 
 	public function getBarang()
 	{
+		$this->db->select('idBarang');
 		$this->db->select('gambar');
 		$this->db->select('namaBarang');
 		$this->db->select('hargaBarang');

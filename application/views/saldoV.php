@@ -104,7 +104,7 @@ nav {
                 <div class="collapse navbar-collapse  justify-content-end" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo base_url('index.php/Pembeli/barang/index')?>">Item</a>
+                            <a class="nav-link" href="#">Item</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/index')?>">Auction</a>
@@ -114,8 +114,8 @@ nav {
                                 Account
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item " href="#">Profile</a></li>
-                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/saldoC/index')?>">Saldo</a></li>
+								<li><a class="dropdown-item " href="ControllerDashboardPembeli/profile">Profile</a></li>
+                                <li><a class="dropdown-item " href="#">Saldo</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('index.php/dashboardC/index')?>">Logout</a></li>
                             </ul>
@@ -138,7 +138,7 @@ nav {
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
                 
             </head>
-        <body>
+        	<body>
     <div class="content">
         <div class="panel panel-default">
             <div class="panel-heading">SALDO</div>
@@ -169,7 +169,8 @@ nav {
                 </form>
             </div>
         </div>
-    </body>
+    		</body>
+		</html>
     <!-- Footer -->
       <!-- Site footer -->
     <Footer>
