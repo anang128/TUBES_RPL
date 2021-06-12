@@ -30,7 +30,7 @@
         <nav class="navbar fixed-top navbar-expand-lg navbar-light nav1" data-aos = "fade-down">
             <div class="container">
     
-        <a class="navbar-brand" aria-current="page" href="<?php echo base_url('index.php/dashboardC/index')?>">
+        <a class="navbar-brand" aria-current="page" href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/index')?>">
         <img src="https://d338t8kmirgyke.cloudfront.net/icons/icon_pngs/000/011/145/original/marketplace.png" width="30" height="30">
         </a>
 
@@ -39,25 +39,23 @@
                 </button>
                 <div class="collapse navbar-collapse  justify-content-end" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/index')?>">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Jual Barang
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/statusLelangC/index')?>">Status Lelang</a></li>
-                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/jualBarangC/index')?>">Input Barang</a></li>
-                            </ul>
-                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Lelang
+                                Sell Item
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item " href="#">Pelelang</a></li>
-                                <li><a class="dropdown-item" href="<?php echo base_url('index.php/Pembeli/ControllerDashboardPembeli/index')?>">Pembeli</a></li>
+                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/statusLelangC/index')?>">Status</a></li>
+                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/jualBarangC/index')?>">Input Item</a></li>
+                            </ul>
+                        </li>
+                        <a class="nav-link" href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/index')?>">Auction</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Account
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item " href="#">Profile</a></li>
+                                <li><a class="dropdown-item " href="#">Saldo</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('index.php/dashboardC/index')?>">Logout</a></li>
                             </ul>
@@ -79,7 +77,7 @@
                         Masukan Informasi Barang
                     </div>
                     <div class="card-body">
-					<?php echo form_open_multipart('Penjual/ControllerBarang/addBarang'); ?>
+					<form class="form-signin" action="<?= base_url('index.php/Penjual/ControllerBarang/addBarang')?>" method="POST">
                         <div class="form-floating mb-3">
                             <input type="text" name="namaBarang" class="form-control" id="namaBarang" placeholder="Nama Barang">
 							<?= form_error('namaBarang', '<small class="text-danger pl-3">', '</small>'); ?>
@@ -109,8 +107,7 @@
                             <div class="new-lebabers" style="padding-bottom:10px">
                                 Masukan Gambar Barang
                             </div>
-                            <input type="file" name="gambar" id="gambar"/>
-							<?= form_error('gambar', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <input type="file" name="gambar" id="gambar" value="upload gambar"/>
                         </div>
                         
                         <div class="button-login text-end" href="#">

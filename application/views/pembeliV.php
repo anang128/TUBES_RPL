@@ -30,9 +30,9 @@
         <nav class="navbar fixed-top navbar-expand-lg navbar-light nav1" data-aos = "fade-down">
             <div class="container">
 
-        <a class="navbar-brand" aria-current="page" href="<?php echo base_url('index.php/dashboardC/index')?>">
-        <img src="https://d338t8kmirgyke.cloudfront.net/icons/icon_pngs/000/011/145/original/marketplace.png" width="30" height="30">
-        </a>
+                <a class="navbar-brand" aria-current="page" href="<?php echo base_url('index.php/Pembeli/ControllerDashboardPembeli/index')?>">
+                <img src="https://d338t8kmirgyke.cloudfront.net/icons/icon_pngs/000/011/145/original/marketplace.png" width="30" height="30">
+                </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -40,12 +40,20 @@
                 <div class="collapse navbar-collapse " id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="<?php echo base_url('index.php/Pembeli/ControllerDashboardPembeli/index')?>">Home</a>
+                            <a class="nav-link" href="<?php echo base_url('index.php/Pembeli/barang/index')?>">Item</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Item</a>
+                            <a class="nav-link" href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/index')?>">Auction</a>
                         </li>
-                        <li><a class="nav-link" href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/index')?>">Auction</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Account
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item " href="#">Profile</a></li>
+                                <li><a class="dropdown-item " href="#">Saldo</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url('index.php/dashboardC/index')?>">Logout</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -88,21 +96,35 @@
         <div class="container">
 
             <div class="row r-1">
-			<?php foreach ($barang as $b): ?>
                 <div class="col">
                     <div class="card" style="width: 18rem;">
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                <img src="<?php echo base_url('assets/img/'. $b['gambar']) ?>" class="d-block w-100" alt="...">
+                                <img src="<?php echo base_url('assets/img/11.jpg') ?>" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                <img src="<?php echo base_url('assets/img/21.jpg') ?>" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                <img src="<?php echo base_url('assets/img/31.jpg') ?>" class="d-block w-100" alt="...">
                                 </div>
                             </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title text-center"><?= $b['namaBarang'] ?></h5>
-                            <p class="card-text">Harga Awal : <?= $b['hargaBarang'] ?></p>
-                            <p class="card-text">Bid Tertinggi : <?= $b['hargaAkhir'] ?></p>
+                            <h5 class="card-title text-center">Tas LV</h5>
+                            <p class="card-text">Bid Tertinggi</p>
+                            <p class="card-text">Last Bid</p>
+                            <p class="card-text">Mulai Bid</p>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" placeholder="Masukan Nominal Bid" aria-label="Recipient's username" aria-describedby="button-addon2">
                                 <button class="btn btn-outline-secondary" type="button" id="button-addon2">Bid</button>
@@ -111,10 +133,86 @@
 
                     </div>
                 </div>
-			<?php endforeach; ?>
+
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                <img src="<?php echo base_url('assets/img/12.jpg') ?>" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                <img src="<?php echo base_url('assets/img/22.jpg') ?>" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                <img src="<?php echo base_url('assets/img/23.jpg') ?>" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Tas Vans</h5>
+                            <p class="card-text">Bid Tertinggi</p>
+                            <p class="card-text">Last Bid</p>
+                            <p class="card-text">Mulai Bid</p>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Masukan Nominal Bid" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Bid</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                <img src="<?php echo base_url('assets/img/13.jpg') ?>" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                <img src="<?php echo base_url('assets/img/32.jpg') ?>" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                <img src="<?php echo base_url('assets/img/33.jpg') ?>" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Tas Dikies</h5>
+                            <p class="card-text">Bid Tertinggi</p>
+                            <p class="card-text">Last Bid</p>
+                            <p class="card-text">Mulai Bid</p>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Masukan Nominal Bid" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Bid</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
