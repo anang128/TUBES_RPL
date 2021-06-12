@@ -8,9 +8,6 @@ class ControllerLogin extends CI_Controller
 			$this->form_validation->set_rules('username','username','required');
 			$this->form_validation->set_rules('password','password','required');
 
-			$username = $this->input->post('username');
-			$password = md5($this->input->post('password'));
-
       if($this->form_validation->run() == FALSE)
       {
 				$this->load->view('loginV');

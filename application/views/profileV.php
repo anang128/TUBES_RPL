@@ -172,9 +172,6 @@
                             <h5>
                                 Kshiti Ghelani
                             </h5>
-                            <h6>
-                                Pembeli
-                            </h6>
                         </div>
                     </div>
                 </div>
@@ -183,7 +180,7 @@
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>User Id</label>
+                                                <label>Username</label>
                                             </div>
                                             <div class="col-md-6">
                                                 <p>Kshiti123</p>
@@ -215,10 +212,18 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Profession</label>
+                                                <label>Address</label>
                                             </div>
                                             <div class="col-md-6">
                                                 <p>Web Developer and Designer</p>
+                                            </div>
+                                        </div>
+										<div class="row">
+                                            <div class="col-md-6">
+                                                <label>Saldo</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>0</p>
                                             </div>
                                         </div>
                                         <div class="col-md-2">

@@ -42,6 +42,7 @@ class ControllerBarang extends CI_Controller
 			$data = [
 				"idUser" => $user['id'],
 				"namaBarang" => $this->input->post('namaBarang', true),
+				"username" => $user['username'],
 				"statusBarang" => $this->input->post('statusBarang', true),
 				"descBarang" => $this->input->post('descBarang', true),
 				"hargaBarang" => $this->input->post('hargaBarang', true),
@@ -50,7 +51,6 @@ class ControllerBarang extends CI_Controller
 				"gambar" => $gambar,
 				"statusLelang" => "Pending"
 			];
-
 
 			$this->LeBabeModel->insertData('barang', $data);
 			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">

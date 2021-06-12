@@ -110,7 +110,11 @@
 						<td><?php echo $dt['statusBarang'] ?></td>
 						<td><?php echo $dt['hargaBarang'] ?></td>
 						<td><?php echo $dt['hargaAkhir'] ?></td>
-						<td><a type="button" class="btn btn-danger"><?php echo $dt['statusLelang'] ?></a></td>
+						<?php if ($dt['statusLelang'] == "Success"): ?>
+							<td><a type="button" class="btn btn-success"><?php echo $dt['statusLelang'] ?></a></td>
+						<?php else: ?>
+							<td><a type="button" class="btn <?= ($dt['statusLelang'] == "Pending") ? "btn-warning" : "btn-danger" ?>"><?php echo $dt['statusLelang'] ?></a></td>
+						<?php endif; ?>
 					</form>
 					</tr>
 				<?php } ?>

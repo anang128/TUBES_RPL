@@ -8,10 +8,9 @@ class ControllerBidBarang extends CI_Controller
 		$this->load->model('LeBabeModel');
 	}
 
-	public function addBid()
+	public function addBid($idBarang)
 	{
 		$user = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-		$barang = $this->db->get_where('barang', ['namaBarang' => $this->session->userdata('namaBarang')])->row_array();
 		$this->form_validation->set_rules('nominalBid','nominalBid','required');
 
 		if($this->form_validation->run() == FALSE)
@@ -19,14 +18,23 @@ class ControllerBidBarang extends CI_Controller
 			$this->load->view('pembeliV');
 		} else
 		{
-			$data = [
-				"idPembeli" => $user['id'],
-				"idBarang" => $this->input->post('idBarang', true),
-				"idUser" => $user['id'],
-				"namaPembeli" => $user['username'],
-				"nominalBid" => $this->input->post('nominalBid', true)
-			];
-			$this->LeBabeModel->insertData('pembeli', $data);
+			$barang = $this->db->get_where('barang', ['idBarang' => $idBarang])->row_array();
+			if ($barang['hargaAkhir'] < $this->input->post('nominalBid', true))
+			{
+				$data = [
+					"idPembeli" => $user['id'],
+					"idBarang" => $idBarang,
+					"idUser" => $user['id'],
+					"namaPembeli" => $user['username'],
+					"nominalBid" => $this->input->post('nominalBid', true)
+				];
+				$this->LeBabeModel->insertData('pembeli', $data);
+				$dataBid = [
+					'idBarang' => $idBarang,
+					'nominalBid' => $this->input->post('nominalBid', true)
+				];
+				$this->LeBabeModel->updateBid($dataBid);
+			}
 		}
 		redirect('Pembeli/ControllerDashboardPembeli');
 	}
