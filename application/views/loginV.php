@@ -72,7 +72,7 @@
                             <label for="password">Password</label>
                         </div>
                         <div class="button-login text-end" href="#">
-                            <button type="submit" class="btn btn-signin">">Sign In</button>
+                            <button type="submit" class="btn btn-signin">Sign In</button>
                         </div>
                         <div class="new-lebabers">
                             New Lebabers? <a href="<?php echo base_url('index.php/ControllerRegister/index')?>">Create Account</a>

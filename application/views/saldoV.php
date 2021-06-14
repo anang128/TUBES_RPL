@@ -89,7 +89,8 @@ nav {
 </style>
   <body>
 
-    <!-- Navbar -->
+     <!-- Navbar -->
+     <body>
     <div>
         <nav class="navbar fixed-top navbar-expand-lg navbar-light nav1" data-aos = "fade-down">
             <div class="container">
@@ -114,8 +115,8 @@ nav {
                                 Account
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item " href="ControllerDashboardPembeli/profile">Profile</a></li>
-                                <li><a class="dropdown-item " href="#">Saldo</a></li>
+                                <li><a class="dropdown-item " href="#">Profile</a></li>
+                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/saldo')?>">Saldo</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('index.php/dashboardC/index')?>">Logout</a></li>
                             </ul>
@@ -125,7 +126,6 @@ nav {
             </div>
         </nav>
     </div>
-
     <div>
         <html lang="en">
             <head>
@@ -195,14 +195,16 @@ nav {
     </footer>
         <!-- Optional JavaScript; choose one of the two! -->
 
+    <!-- Optional JavaScript; choose one of the two! -->
+
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    
+    <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-   
+    -->
 
     <!-- JS AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

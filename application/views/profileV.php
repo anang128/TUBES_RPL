@@ -165,7 +165,8 @@
             <section class="col-12 col-sm-6 col-md-4 kotak">
                 <div class="card">
                     <div class="card-body">
-            <form method="post">
+                <form class="form-edit" action="<?= base_url('index.php/Pembeli/ControllerDashboardPembeli/editProfile')?>">
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="profile-head">
@@ -176,6 +177,7 @@
                     </div>
                 </div>
                     <div class="col-md-8">
+                                                            
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="row">
@@ -226,11 +228,13 @@
                                                 <p>0</p>
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                    </div>
+                                            <div class="col-md-2">
+                                                <button type="submit" class="profile-edit-btn">Edit Profile </button>
+                                            </div>
+                                        
                                 </div>
                         </div>
+
                     </div>
                 </div>
             </form>           

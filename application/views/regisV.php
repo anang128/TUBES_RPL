@@ -92,7 +92,7 @@
 
                         
                         
-                        <div class="button-login text-end" href="#">
+                        <div class="button-login text-end" href="">
                             <button type="submit" class="btn btn-signin">Register</button>
                         </div>
                         <div class="new-lebabers">
