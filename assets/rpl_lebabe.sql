@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2021 at 11:07 AM
+-- Generation Time: Jun 15, 2021 at 11:10 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -56,6 +56,29 @@ INSERT INTO `barang` (`idBarang`, `idUser`, `namaBarang`, `username`, `statusBar
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pembeli`
+--
+
+CREATE TABLE `pembeli` (
+  `idPembeli` int(32) NOT NULL,
+  `idBarang` int(32) NOT NULL,
+  `idUser` int(32) NOT NULL,
+  `namaPembeli` varchar(64) NOT NULL,
+  `namaBarang` varchar(64) NOT NULL,
+  `nominalBid` bigint(255) NOT NULL,
+  `statusBid` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `pembeli`
+--
+
+INSERT INTO `pembeli` (`idPembeli`, `idBarang`, `idUser`, `namaPembeli`, `namaBarang`, `nominalBid`, `statusBid`) VALUES
+(16, 33, 16, 'shiba', 'motor', 4000000, 'Pending');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -88,6 +111,12 @@ INSERT INTO `user` (`id`, `username`, `password`, `nama`, `email`, `no_telp`, `a
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`idBarang`);
+
+--
+-- Indexes for table `pembeli`
+--
+ALTER TABLE `pembeli`
+  ADD PRIMARY KEY (`idPembeli`);
 
 --
 -- Indexes for table `user`
