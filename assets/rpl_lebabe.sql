@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2021 at 07:27 PM
+-- Generation Time: Jun 15, 2021 at 10:55 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -46,12 +46,12 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`idBarang`, `idUser`, `namaBarang`, `username`, `statusBarang`, `descBarang`, `hargaBarang`, `hargaAkhir`, `deadline`, `gambar`, `statusLelang`) VALUES
-(24, 14, 'motor', 'anang', 'bekas', 'apaaja', 0, 1500000, '2021-06-14', '11.jpg', 'Failed'),
 (25, 14, 'mobil', 'anang', 'baru', 'apaaja', 0, 0, '2021-06-23', '12.jpg', 'Failed'),
-(26, 14, 'sepeda', 'anang', 'baru', 'apaaja', 0, 1500000, '2021-06-15', '13.jpg', 'Success'),
 (29, 13, 'hp', 'duy', 'baru', 'apaaja', 0, 3000000, '2021-06-14', '32.jpg', 'Success'),
 (30, 13, 'laptop', 'duy', 'bekas', 'apaaja', 0, 1, '2021-06-15', '31.jpg', 'Success'),
-(31, 13, 'vape', 'duy', 'baru', 'apaaja', 0, 0, '2021-06-14', 'ts1.jpg', 'Pending');
+(31, 13, 'vape', 'duy', 'baru', 'apaaja', 0, 0, '2021-06-14', 'ts1.jpg', 'Failed'),
+(33, 14, 'motor', 'anang', 'baru', 'apaaja', 0, 3000000, '2021-06-16', '31.jpg', 'Pending'),
+(34, 14, 'sepeda', 'anang', 'bekas', 'apaaja', 0, 1500000, '2021-06-16', '311.jpg', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -75,8 +75,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `nama`, `email`, `no_telp`, `alamat`, `saldo`) VALUES
-(13, 'duy', '$2y$10$KHfDGV4FQblnasw16AkqyOl1nNe8VAVvJEiHP9dkUlJ1LBd4aa6P6', 'duy', 'duy@gmail.com', '080808', 'bdg', 0),
-(14, 'anang', '$2y$10$w9RrPfJZITH/YdQVg8B0vuyRwq2b2iiRyxK/3HPcFLyUb5KsSP0Y.', 'anang', 'anang@gmail.com', '070707', 'bdg', 0);
+(13, 'duy', '$2y$10$mffBE3LFnulOnSsbFJFREuoUDRYekowZWCe6cpdwQYXqNR5Fa2BLq', 'yuda pratama', 'duy@gmail.com', '080808', 'lop', 14000),
+(14, 'anang', '$2y$10$tI5VHOHVZi69x5FSxSXd6.6ATQufbYaiMXE4HFLw8Br5vVkOv2ZZu', 'anang furkon', 'anang@gmail.com', '080808', 'jgj', 3000),
+(16, 'shiba', '$2y$10$wnJkSkvXWpaU521UCVjAnOYfqRJZzmSEYWlls6omqAPE6Eh9bimpy', 'shiba', 'shiba@gmail.com', '080808', 'jkt', 10000);
 
 --
 -- Indexes for dumped tables
@@ -102,13 +103,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `idBarang` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `idBarang` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
