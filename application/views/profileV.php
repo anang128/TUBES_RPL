@@ -163,29 +163,32 @@
     
     <div class="row row1 justify-content-center">
             <section class="col-12 col-sm-6 col-md-4 kotak">
+			<?php if ($this->session->flashdata('pesan')) : ?>
+			<?= $this->session->flashdata('pesan'); ?>
+			<?php endif; ?>
+			<?php $this->session->unset_userdata('pesan'); ?>
                 <div class="card">
                     <div class="card-body">
                 <form class="form-edit" action="<?= base_url('index.php/Pembeli/ControllerDashboardPembeli/editProfile')?>">
-
+			<?php foreach($data as $dt) : ?>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="profile-head">
                             <h5>
-                                Kshiti Ghelani
+								<?php echo $dt->username ?>
                             </h5>
                         </div>
                     </div>
                 </div>
                     <div class="col-md-8">
-                                                            
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Username</label>
+                                                <label>username</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Kshiti123</p>
+                                                <p><?php echo $dt->username ?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -193,7 +196,7 @@
                                                 <label>Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Kshiti Ghelani</p>
+                                                <p><?php echo $dt->nama ?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -201,7 +204,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>kshitighelani@gmail.com</p>
+                                                <p><?php echo $dt->email ?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -209,7 +212,7 @@
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>123 456 7890</p>
+                                                <p><?php echo $dt->no_telp ?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -217,7 +220,7 @@
                                                 <label>Address</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Web Developer and Designer</p>
+                                                <p><?php echo $dt->alamat ?></p>
                                             </div>
                                         </div>
 										<div class="row">
@@ -225,16 +228,16 @@
                                                 <label>Saldo</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>0</p>
+                                                <p><?php echo $dt->saldo ?></p>
                                             </div>
                                         </div>
                                             <div class="col-md-2">
                                                 <button type="submit" class="profile-edit-btn">Edit Profile </button>
                                             </div>
-                                        
                                 </div>
-                        </div>
+			<?php endforeach; ?>
 
+                        </div>
                     </div>
                 </div>
             </form>           

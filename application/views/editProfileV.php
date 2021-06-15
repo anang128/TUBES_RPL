@@ -239,7 +239,7 @@ section .section-title {
                     <div class="wlcm text-center">
                         EDIT PROFILE
                     </div>
-					<form class="form-signin" action="<?= base_url('index.php/ControllerRegister/index')?>" method="POST">
+					<form class="form-signin" action="<?= base_url('index.php/Pembeli/ControllerDashboardPembeli/editProfile')?>" method="POST">
 					<div class="form-floating mb-3">
                             <input type="text" name="nama" class="form-control" id="nama" placeholder="name@example.com">
 							<?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>

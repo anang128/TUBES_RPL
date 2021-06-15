@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,7 +13,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <!-- My CSS -->
-    <link rel="stylesheet" href="<?php echo base_url().'assets/css/saldoV.css' ?>">
+    <link rel="stylesheet" href="<?php echo base_url().'assets/css/statusLelangV.css' ?>">
 
     <!-- My Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,99 +22,30 @@
     <!-- Tittle -->
     <title>Lelang Barang Bekas!</title>
   </head>
-  <style>
-      .content{
-    padding : 88px;
-    
-}
-.panel-default{
-    height : 300px;
-    width : 500px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    border : 2px solid #f38997;
-    border-radius: 10px;
-}
-.panel-heading{
-    background-color: #f38997;
-    color : white;
-    text-align: center;
-    padding : 10px;
-    font-weight: bolder;
-    font-family: 'Poppins';
-}
-.panel-body{
-    padding : 20px;
-    color : black;
-    font-family: 'Poppins';
-}
-.dropdown {
-    color: white;
-    position: relative;
-    display: inline-block;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #FFF;
-    min-width: 160px;
-    box-shadow: 0px 4px 8px 0px rgba(34, 49, 63, 1);
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-weight: bolder;
-}
-
-.dropdown-content a:hover {
-    background-color: #000;
-    color : white;
-    font-weight: bolder;
-}
-
-nav {
-    font-family: 'Poppins';
-}
-
-.nav-link {
-    color: #ffffff;
-}
-
-.dropdown:hover .dropdown-content {display: block;}
-</style>
   <body>
-
-     <!-- Navbar -->
-     <body>
+    
+    
+    <!-- Navbar -->
     <div>
         <nav class="navbar fixed-top navbar-expand-lg navbar-light nav1" data-aos = "fade-down">
             <div class="container">
-
-                <a class="navbar-brand" aria-current="page" href="<?php echo base_url('index.php/Pembeli/ControllerDashboardPembeli/index')?>">
+    
+                <a class="navbar-brand" aria-current="page" href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/index')?>">
                 <img src="https://d338t8kmirgyke.cloudfront.net/icons/icon_pngs/000/011/145/original/marketplace.png" width="30" height="30">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse  justify-content-end" id="navbarNavDropdown">
+                <div class="collapse navbar-collapse " id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Item</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/index')?>">Auction</a>
-                        </li>
+                        <li><a class="nav-link" href="<?php echo base_url('index.php/Pembeli/ControllerDashboardPembeli/index')?>">Auction</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Account
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item " href="#">Profile</a></li>
+                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/profile')?>">Profile</a></li>
                                 <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/saldo')?>">Saldo</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('index.php/dashboardC/index')?>">Logout</a></li>
@@ -126,6 +56,8 @@ nav {
             </div>
         </nav>
     </div>
+
+    <!-- Content-1 -->
     <div>
         <html lang="en">
             <head>
@@ -138,51 +70,50 @@ nav {
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
                 
             </head>
-        	<body>
-    <div class="content">
-			<?php if ($this->session->flashdata('pesan')) : ?>
-			<?= $this->session->flashdata('pesan'); ?>
-			<?php endif; ?>
-			<?php $this->session->unset_userdata('pesan'); ?>
-        <div class="panel panel-default">
-            <div class="panel-heading">SALDO</div>
-                <div class="panel-body">
-                <?php if(isset($error_message)) { ?>
-                        <div class="alert alert-danger" role="alert">
-                            <?= $error_message ?>
-                        </div>
-                <?php } ?>
-                <?php if(isset($success)) { ?>
-                            <div class="alert alert-success" role="alert">
-                                <?= $success ?>
-                            </div>
-                <?php } ?>
-				<?php foreach ($data as $dt) : ?>
-						<div class="row">
-							<label>Jumlah Saldo</label>
-                            <div class="col-md-6">
-                            <?php echo $dt->username ?> : Rp.<?php echo $dt->saldo ?></p>
-                            </div>
-                        </div>
-                		<form method="post" action="<?php echo base_url('index.php/Pembeli/ControllerDashboardPembeli/isiSaldo'); ?>">
-                        <div class="form-group">
-                            <label for="formGroupExampleInput">Isi Saldo</label>
-                            <input type="number" name="saldo" class="form-control" id="formGroupExampleInput" placeholder="Isi Saldo" name="jumlah"required>
-                        </div>      
-                        <div class="form-group">
-							<button type="submit" class="profile-edit-btn">Isi</button>
-                        </div>
-                		</form>
-                    </div>
-				<?php endforeach; ?>
+        <body>
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4 text-center">STATUS BID</h1>      
+
+                <table class="table table-striped">
+                <thead>
+                    <tr>
+					<th>No</th>
+                    <th scope="col">Nama Barang</th>
+                    <th scope="col">Harga Bid</th>
+					<th scope="col">Status Bid</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php $no = 1;
+				foreach ($data as $dt) { ?>
+					<tr>
+					<form action="">
+						<td><?php echo $no++ ?></td>
+						<td><?php echo $dt['namaBarang'] ?></td>
+						<td><?php echo $dt['nominalBid'] ?></td>
+						<?php if ($dt['statusBid'] == "Success"): ?>
+							<td><a type="button" class="btn btn-success"><?php echo $dt['statusBid'] ?></a></td>
+						<?php else: ?>
+							<td><a type="button" class="btn <?= ($dt['statusBid'] == "Pending") ? "btn-warning" : "btn-danger" ?>"><?php echo $dt['statusBid'] ?></a></td>
+						<?php endif; ?>
+					</form>
+					</tr>
+				<?php } ?>
+                </tbody>
+                </table>
+
             </div>
         </div>
-    		</body>
-		</html>
+    </div>
+
+
+        
+
     <!-- Footer -->
-      <!-- Site footer -->
-    <Footer>
-      <div class="footer_bottom">
+
+			<div class="footer_bottom">
                 <div class="container">
                     <div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
@@ -198,10 +129,9 @@ nav {
                     height="24px"
                  >
                 </div>
-		    </div>
-        </div>
-    </footer>
-        <!-- Optional JavaScript; choose one of the two! -->
+		</div>
+	<!-- ./Footer -->
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -221,4 +151,3 @@ nav {
     </script>
   </body>
 </html>
-                    

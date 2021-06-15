@@ -11,6 +11,10 @@ class LeBabeModel extends CI_model
 		$this->db->insert($table, $data);
 	}
 
+	public function updateData($table,$data,$where){
+		$this->db->update($table,$data,$where);
+	}
+
     public function deleteData($where,$table){
 		$this->db->where($where);
 		$this->db->delete($table);
@@ -29,6 +33,17 @@ class LeBabeModel extends CI_model
 		$this->db->select('gambar');
 		$this->db->from('barang');
 		$this->db->where('idUser', $id);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
+	public function showBidPembeli($id)
+	{
+		$this->db->select('namaBarang');
+		$this->db->select('nominalBid');
+		$this->db->select('statusBid');
+		$this->db->from('pembeli');
+		$this->db->where('idPembeli', $id);
 		$query = $this->db->get();
 		return $query->result_array();
 	}
@@ -58,6 +73,19 @@ class LeBabeModel extends CI_model
 		$this->db->set('hargaAkhir', $data['nominalBid']);
 		$this->db->where('idBarang', $id);
 		$this->db->update('barang');
+	}
+
+	public function getprofile($id){
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('id',$id);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+	public function topUpSaldo($id,$jumlah)
+	{
+		$this->db->query("UPDATE user SET saldo = saldo + $jumlah WHERE id = $id");
 	}
 }
 

@@ -21,8 +21,13 @@ class ControllerLogin extends CI_Controller
 				{
 					if(password_verify($password, $user['password']))
 					{
-						$data['username'] = $user['username'];
+						$data = [
+							'id' => $user['id'],
+							'username' => $user['username']
+						];
 						$this->session->set_userdata($data);
+						// $this->session->set_userdata('username', $data['username']);
+        				// $this->session->set_userdata('id', $data['id']);
 						redirect('Pembeli/ControllerDashboardPembeli');
 					} else
 					{

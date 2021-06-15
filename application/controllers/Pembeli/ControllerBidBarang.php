@@ -26,7 +26,9 @@ class ControllerBidBarang extends CI_Controller
 					"idBarang" => $idBarang,
 					"idUser" => $user['id'],
 					"namaPembeli" => $user['username'],
-					"nominalBid" => $this->input->post('nominalBid', true)
+					"namaBarang" => $barang['namaBarang'],
+					"nominalBid" => $this->input->post('nominalBid', true),
+					"statusBid" => "Pending"
 				];
 				$this->LeBabeModel->insertData('pembeli', $data);
 				$dataBid = [
