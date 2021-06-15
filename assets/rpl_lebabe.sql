@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2021 at 10:55 AM
+-- Generation Time: Jun 15, 2021 at 11:07 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -50,7 +50,7 @@ INSERT INTO `barang` (`idBarang`, `idUser`, `namaBarang`, `username`, `statusBar
 (29, 13, 'hp', 'duy', 'baru', 'apaaja', 0, 3000000, '2021-06-14', '32.jpg', 'Success'),
 (30, 13, 'laptop', 'duy', 'bekas', 'apaaja', 0, 1, '2021-06-15', '31.jpg', 'Success'),
 (31, 13, 'vape', 'duy', 'baru', 'apaaja', 0, 0, '2021-06-14', 'ts1.jpg', 'Failed'),
-(33, 14, 'motor', 'anang', 'baru', 'apaaja', 0, 3000000, '2021-06-16', '31.jpg', 'Pending'),
+(33, 14, 'motor', 'anang', 'baru', 'apaaja', 0, 4000000, '2021-06-16', '31.jpg', 'Pending'),
 (34, 14, 'sepeda', 'anang', 'bekas', 'apaaja', 0, 1500000, '2021-06-16', '311.jpg', 'Pending');
 
 -- --------------------------------------------------------
