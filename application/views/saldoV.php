@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 
     <!-- Tittle -->
-    <title>Lelang Barang Bekas!</title>
+    <title>Saldo - Lelang Barang Bekas!</title>
   </head>
   <style>
       .content{
@@ -105,7 +105,7 @@ nav {
                 <div class="collapse navbar-collapse  justify-content-end" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Item</a>
+                            <a class="nav-link" href="<?php echo base_url('index.php/Pembeli/keranjangC/index')?>">Item</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/index')?>">Auction</a>
@@ -115,7 +115,7 @@ nav {
                                 Account
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item " href="#">Profile</a></li>
+                                <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/profile')?>">Profile</a></li>
                                 <li><a class="dropdown-item " href="<?php echo base_url('index.php/Penjual/ControllerDashboardPenjual/saldo')?>">Saldo</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('index.php/dashboardC/index')?>">Logout</a></li>
