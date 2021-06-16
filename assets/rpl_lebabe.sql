@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2021 at 11:10 AM
+-- Generation Time: Jun 16, 2021 at 02:44 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -48,10 +48,9 @@ CREATE TABLE `barang` (
 INSERT INTO `barang` (`idBarang`, `idUser`, `namaBarang`, `username`, `statusBarang`, `descBarang`, `hargaBarang`, `hargaAkhir`, `deadline`, `gambar`, `statusLelang`) VALUES
 (25, 14, 'mobil', 'anang', 'baru', 'apaaja', 0, 0, '2021-06-23', '12.jpg', 'Failed'),
 (29, 13, 'hp', 'duy', 'baru', 'apaaja', 0, 3000000, '2021-06-14', '32.jpg', 'Success'),
-(30, 13, 'laptop', 'duy', 'bekas', 'apaaja', 0, 1, '2021-06-15', '31.jpg', 'Success'),
 (31, 13, 'vape', 'duy', 'baru', 'apaaja', 0, 0, '2021-06-14', 'ts1.jpg', 'Failed'),
 (33, 14, 'motor', 'anang', 'baru', 'apaaja', 0, 4000000, '2021-06-16', '31.jpg', 'Pending'),
-(34, 14, 'sepeda', 'anang', 'bekas', 'apaaja', 0, 1500000, '2021-06-16', '311.jpg', 'Pending');
+(36, 14, 'test', 'anang', 'test', 'test', 0, 0, '2021-06-17', '33.jpg', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -98,8 +97,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `nama`, `email`, `no_telp`, `alamat`, `saldo`) VALUES
-(13, 'duy', '$2y$10$mffBE3LFnulOnSsbFJFREuoUDRYekowZWCe6cpdwQYXqNR5Fa2BLq', 'yuda pratama', 'duy@gmail.com', '080808', 'lop', 14000),
-(14, 'anang', '$2y$10$tI5VHOHVZi69x5FSxSXd6.6ATQufbYaiMXE4HFLw8Br5vVkOv2ZZu', 'anang furkon', 'anang@gmail.com', '080808', 'jgj', 3000),
+(13, 'duy', '$2y$10$mffBE3LFnulOnSsbFJFREuoUDRYekowZWCe6cpdwQYXqNR5Fa2BLq', 'yuda pratama', 'duy@gmail.com', '080808', 'lop', 16000),
+(14, 'anang', '$2y$10$tI5VHOHVZi69x5FSxSXd6.6ATQufbYaiMXE4HFLw8Br5vVkOv2ZZu', 'anang furkon', 'anang@gmail.com', '080808', 'jgj', 5000),
 (16, 'shiba', '$2y$10$wnJkSkvXWpaU521UCVjAnOYfqRJZzmSEYWlls6omqAPE6Eh9bimpy', 'shiba', 'shiba@gmail.com', '080808', 'jkt', 10000);
 
 --
@@ -132,7 +131,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `idBarang` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `idBarang` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `user`
