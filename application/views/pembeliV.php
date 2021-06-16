@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 
     <!-- Tittle -->
-    <title>Shop - Lelang Barang Bekas!</title>
+    <title>Lelang Barang Bekas!</title>
   </head>
   <body>
     
@@ -96,41 +96,36 @@
         <div class="container">
 
             <div class="row r-1">
-                <?php foreach ($barang as $b): ?>
-                    <?php if ($b['username'] != $this->session->userdata('username')): ?>
-
-                        <div class="col">
-
-                            <div class="card" style="width: 18rem;">
-                                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                        <img src="<?php echo base_url('assets/img/'. $b['gambar']) ?>" class="d-block w-100" alt="...">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="card-body">
-                                    <h5 class="card-title text-center"><?= $b['namaBarang'] ?></h5>
-                                    <p class="card-text">Harga Awal    : <?= $b['hargaBarang'] ?></p>
-                                    <p class="card-text">Bid Tertinggi : <?= $b['hargaAkhir'] ?></p>
-                                    <p class="card-text"> Status Lelang: <?= ($b['statusLelang'] == "Pending") ? "Opened" : "Closed" ?></p>
-                                    <form class="form-signin" action="<?= base_url('index.php/Pembeli/ControllerBidBarang/addBid/'. $b['idBarang'])?>" method="POST">
-                                    <div class="input-group mb-3">
-                                        <input type="text" name="nominalBid" class="form-signin" placeholder="Masukan Nominal Bid" aria-label="Recipient's username" aria-describedby="button-addon2" <?= ($b['statusLelang'] != "Pending") ? "readonly" : "" ?>>
-                                        <button type="submit" class="btn btn-outline-secondary">Bid</button>
-                                    </div>
-                                    </form>
+			<?php foreach ($barang as $b): ?>
+			<?php if ($b['username'] != $this->session->userdata('username')): ?>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                <img src="<?php echo base_url('assets/img/'. $b['gambar']) ?>" class="d-block w-100" alt="...">
                                 </div>
                             </div>
-
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><?= $b['namaBarang'] ?></h5>
+                            <p class="card-text">Harga Awal    : <?= $b['hargaBarang'] ?></p>
+                            <p class="card-text">Bid Tertinggi : <?= $b['hargaAkhir'] ?></p>
+							<p class="card-text"> Status Lelang: <?= ($b['statusLelang'] == "Pending") ? "Opened" : "Closed" ?></p>
+							<form class="form-signin" action="<?= base_url('index.php/Pembeli/ControllerBidBarang/addBid/'. $b['idBarang'])?>" method="POST">
+                            <div class="input-group mb-3">
+                                <input type="text" name="nominalBid" class="form-signin" placeholder="Masukan Nominal Bid" aria-label="Recipient's username" aria-describedby="button-addon2" <?= ($b['statusLelang'] != "Pending") ? "readonly" : "" ?>>
+                                <button type="submit" class="btn btn-outline-secondary">Bid</button>
+                            </div>
+							</form>
                         </div>
 
-                    <?php endif; ?>
-                <?php endforeach; ?>
+                    </div>
+                </div>
+			<?php endif; ?>
+			<?php endforeach; ?>
             </div>
         </div>
-
     </div>
 
     

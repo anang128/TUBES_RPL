@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 
     <!-- Tittle -->
-    <title>Status Lelang - Lelang Barang Bekas!</title>
+    <title>Lelang Barang Bekas!</title>
   </head>
   <body>
     
@@ -83,7 +83,11 @@
 
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4 text-center">STATUS PENJUALAN</h1>      
+			<?php if ($this->session->flashdata('pesan')) : ?>
+			<?= $this->session->flashdata('pesan'); ?>
+			<?php endif; ?>
+			<?php $this->session->unset_userdata('pesan'); ?>
+                <h1 class="display-4 text-center">STATUS LELANG</h1>      
 
                 <table class="table table-striped">
                 <thead>
@@ -95,13 +99,13 @@
                     <th scope="col">Harga Awal</th>
 					<th scope="col">Harga Akhir</th>
 					<th scope="col">Status Lelang</th>
+					<th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php $no = 1;
 				foreach ($data as $dt) { ?>
 					<tr>
-					<form action="">
 						<td><?php echo $no++ ?></td>
 						<td><?php echo $dt['namaBarang'] ?></td>
 						<td><?php echo $dt['descBarang'] ?></td>
@@ -113,7 +117,9 @@
 						<?php else: ?>
 							<td><a type="button" class="btn <?= ($dt['statusLelang'] == "Pending") ? "btn-warning" : "btn-danger" ?>"><?php echo $dt['statusLelang'] ?></a></td>
 						<?php endif; ?>
-					</form>
+						<form class="form-signin" action="<?= base_url('index.php/Penjual/ControllerBarang/hapusBarang/'.$dt['idBarang'])?>">
+							<td><button type="submit" class="form-signin">Delete</button></td>
+						</form>
 					</tr>
 				<?php } ?>
                 </tbody>

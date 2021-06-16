@@ -61,15 +61,16 @@ class ControllerBarang extends CI_Controller
 		}
     }
 
-    public function deleteBarang($id)
+    public function hapusBarang($idBarang)
     {
-        $where = array('idBarang' => $id);
-        $this->LeBabeModel->deleteData($where,'barang');
-        $this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
-			  Barang berhasil dihapus
-			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			</div>');
-        redirect('barangView');
+		$barang = $this->db->get_where('barang', ['idBarang' => $idBarang])->row_array();
+        $idBarang = $barang['idBarang'];
+        $this->LeBabeModel->deleteBarang($idBarang);
+        $this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
+		Barang berhasil dihapus
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		</div>');
+        redirect('Penjual/statusLelangC');
     }
 }
 

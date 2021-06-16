@@ -3,15 +3,18 @@
 Class ControllerDashboardPembeli extends CI_Controller{
 	public function __construct()
 	{
+		// Melakukan load model yang dibangun (LeBabeModel)
 		parent::__construct();
 		$this->load->model('LeBabeModel');
 	}
 	
-    public function index(){
+    public function index()
+	{
+		// Melakukan cek user yang sedang login berdasarkan session username saat login
 		$acc = $this->LeBabeModel->getUser($_SESSION['username']);
 		$data = [
-			"barang" => $this->LeBabeModel->getBarang(),
-			"acc" => $this->LeBabeModel->showDataPenjualan($acc['id'])
+			"barang" => $this->LeBabeModel->getBarang()
+			// "acc" => $this->LeBabeModel->showDataPenjualan($acc['id'])
 		];
 		$this->load->view('pembeliV', $data);
     }
